@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Question;
+use App\Repository\AnswerRepository;
 use App\Repository\QuestionRepository;
 use App\Service\MarkdownHelper;
 use Doctrine\ORM\EntityManagerInterface;
@@ -51,6 +52,11 @@ class QuestionController extends AbstractController
     {
         if ($this->isDebug) {
             $this->logger->info('We are in debug mode!');
+        }
+
+        $answers = $question->getAnswers();
+        foreach ($answers as $answer) {
+            dump($answer);
         }
 
         $answers = [
