@@ -16,4 +16,4 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 ###ignore IDE specific stuff
-.idea
+/.idea/
