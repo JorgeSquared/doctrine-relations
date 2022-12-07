@@ -23,6 +23,28 @@ on how you installed Composer.
 
 **Database Setup**
 
+IMPORTANT: this is a message from the future. Sometimes, when working
+on other projects, you may need to reset the port that docker
+uses for MySQL. Feel free to change the port in `docker-compose.yml`
+as you like. The docker-compose file is ignored.
+
+However, when you do this, you probably lose your data and have to rerun
+the container.
+
+Another important message. You can hack into the mysql container directly
+from CLI by running `docker exec -it mysql bash`. This is useful if other
+things are failing and you need to debug. The precise workflow is the following:
+```bash
+docker ps
+```
+and grab the container name for mysql. It should be `start-database-1`. Then run:
+```bash
+docker exec -it start-database-1 bash
+```
+Then you can run `mysql -u root -p` and enter the password (according to `docker-compose.yaml`,
+the password is just `password`). Congratulations, you're in the mysql container! Thanks to
+https://hevodata.com/learn/docker-mysql/ for the tip.
+
 The code comes with a `docker-compose.yaml` file and we recommend using
 Docker to boot a database container. You will still have PHP installed
 locally, but you'll connect to a database inside Docker. This is optional,

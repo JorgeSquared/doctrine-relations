@@ -17,3 +17,6 @@ yarn-error.log
 
 ###ignore IDE specific stuff
 /.idea/
+
+###ignore docker-compose
+.docker-compose.yml
